@@ -49,6 +49,7 @@ function StarWarsData() {
             <p className="mb-2">Height: {person.height} cm</p>
             <p className="mb-2">Mass: {person.mass} kg</p>
             <p className="mb-2">Skin Color: {person.skin_color}</p>
+            
             <h4 className="text-lg font-bold mb-2">Films:</h4>
             <ul className="list-disc list-inside ml-4">
               {person.films.map(film => (

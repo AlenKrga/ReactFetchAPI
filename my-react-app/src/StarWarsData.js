@@ -15,7 +15,7 @@ function StarWarsData() {
   }, []);
 
   return (
-    <div>
+    <div className='mt-4 pl-4'>
       <h2>Star Wars Characters</h2>
       <ul>
         {people.map(person => (
