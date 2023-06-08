@@ -1,6 +1,8 @@
 import React from 'react';
 import StarWarsData from './StarWarsData';
 import CharacterSearch from './CharacterSearch';
+import ReactDOM from 'react-dom';
+import './styles/tailwind.css';
 
 
 function App() {
