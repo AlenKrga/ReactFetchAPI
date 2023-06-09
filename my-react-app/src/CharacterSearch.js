@@ -20,6 +20,13 @@ function StarWarsData() {
       });
   };
 
+
+  const getImageUrl = characterId => {
+    return `https://starwars-visualguide.com/assets/img/characters/${characterId}.jpg`;
+  };
+
+
+
   return (
     <div className="p-4">
       <h2 className="text-2xl font-bold mb-4">Star Wars Character Search</h2>
@@ -42,6 +49,15 @@ function StarWarsData() {
         {people.map(person => (
           <li key={person.url} className="border border-gray-300 rounded p-4 mb-4">
             <h3 className="text-xl font-bold mb-2">{person.name}</h3>
+           
+           
+            <img
+              src={getImageUrl(person.url.split('/')[5])}
+              alt={person.name}
+              className="w-32 h-32 rounded-xl"
+            />
+
+
             <p className="mb-2">Birth Year: {person.birth_year}</p>
             <p className="mb-2">Eye Color: {person.eye_color}</p>
             <p className="mb-2">Gender: {person.gender}</p>
