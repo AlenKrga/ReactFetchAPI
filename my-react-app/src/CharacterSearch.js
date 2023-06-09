@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 function StarWarsData() {
   const [searchTerm, setSearchTerm] = useState('');
   const [people, setPeople] = useState([]);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleSearchChange = event => {
     setSearchTerm(event.target.value);
@@ -10,22 +11,26 @@ function StarWarsData() {
 
   const handleSearchSubmit = event => {
     event.preventDefault();
+
+    if (searchTerm.trim() === '') {
+      setErrorMessage('Enter a name');
+      return;
+    }
+
     fetch(`https://swapi.dev/api/people/?search=${searchTerm}`)
       .then(response => response.json())
       .then(data => {
         setPeople(data.results);
+        setErrorMessage('');
       })
       .catch(error => {
         console.log('Error fetching data:', error);
       });
   };
 
-
   const getImageUrl = characterId => {
     return `https://starwars-visualguide.com/assets/img/characters/${characterId}.jpg`;
   };
-
-
 
   return (
     <div className="p-4">
@@ -45,33 +50,17 @@ function StarWarsData() {
           Search
         </button>
       </form>
+      {errorMessage && <p className="text-red-500">{errorMessage}</p>}
       <ul>
         {people.map(person => (
           <li key={person.url} className="border border-gray-300 rounded p-4 mb-4">
             <h3 className="text-xl font-bold mb-2">{person.name}</h3>
-           
-           
             <img
               src={getImageUrl(person.url.split('/')[5])}
               alt={person.name}
               className="w-32 h-32 rounded-xl"
             />
-
-
-            <p className="mb-2">Birth Year: {person.birth_year}</p>
-            <p className="mb-2">Eye Color: {person.eye_color}</p>
-            <p className="mb-2">Gender: {person.gender}</p>
-            <p className="mb-2">Hair Color: {person.hair_color}</p>
-            <p className="mb-2">Height: {person.height} cm</p>
-            <p className="mb-2">Mass: {person.mass} kg</p>
-            <p className="mb-2">Skin Color: {person.skin_color}</p>
-            
-            <h4 className="text-lg font-bold mb-2">Films:</h4>
-            <ul className="list-disc list-inside ml-4">
-              {person.films.map(film => (
-                <li key={film} className="mb-1">{film}</li>
-              ))}
-            </ul>
+            {/* Rest of the code */}
           </li>
         ))}
       </ul>
