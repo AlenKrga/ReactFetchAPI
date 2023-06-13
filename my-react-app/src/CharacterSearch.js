@@ -60,7 +60,14 @@ function StarWarsData() {
               alt={person.name}
               className="w-32 h-32 rounded-xl"
             />
-            {/* Rest of the code */}
+            <p className="mb-2">Birth Year: {person.birth_year}</p>
+            <p className="mb-2">Eye Color: {person.eye_color}</p>
+            <p className="mb-2">Gender: {person.gender}</p>
+            <p className="mb-2">Hair Color: {person.hair_color}</p>
+            <p className="mb-2">Height: {person.height} cm</p>
+            <p className="mb-2">Mass: {person.mass} kg</p>
+            <p className="mb-2">Skin Color: {person.skin_color}</p>
+            
           </li>
         ))}
       </ul>
