@@ -67,7 +67,11 @@ function StarWarsData() {
             <p className="mb-2">Height: {person.height} cm</p>
             <p className="mb-2">Mass: {person.mass} kg</p>
             <p className="mb-2">Skin Color: {person.skin_color}</p>
-            
+            <ul>
+              {person.films.map(film => (
+                <li key={film}>{film}</li>
+              ))}
+            </ul>
           </li>
         ))}
       </ul>
