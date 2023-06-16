@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSun, faCloud, faCloudShowersHeavy } from '@fortawesome/free-solid-svg-icons';
 
 const Weather = () => {
   const [city, setCity] = useState('');
@@ -24,25 +22,6 @@ const Weather = () => {
       setError('Error fetching weather data');
       setWeatherData('');
       console.error('Error fetching weather data:', error);
-    }
-  };
-
-  const getWeatherIcon = (weatherStateAbbr) => {
-    switch (weatherStateAbbr) {
-      case 'c': // Clear
-        return <FontAwesomeIcon icon={faSun} />;
-      case 'lc': // Light Cloud
-      case 'hc': // Heavy Cloud
-      case 'sl': // Sleet
-      case 'h': // Hail
-        return <FontAwesomeIcon icon={faCloud} />;
-      case 'hr': // Heavy Rain
-      case 'lr': // Light Rain
-      case 's': // Showers
-      case 't': // Thunderstorm
-        return <FontAwesomeIcon icon={faCloudShowersHeavy} />;
-      default:
-        return null;
     }
   };
 
