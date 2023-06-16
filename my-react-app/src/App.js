@@ -5,6 +5,7 @@ import Sidenav from './Sidenav';
 import StarWarsData from './StarWarsData';
 import CharacterSearch from './CharacterSearch';
 import About from './About';
+import Weather from './Weather';
 
 function App() {
   return (
@@ -13,10 +14,13 @@ function App() {
         <Sidenav />
         <Routes>
           <Route path="/about" element={<About />} />
-          <Route path="/" element={<>
-            <StarWarsData />
-            <CharacterSearch />
-          </>} />
+          <Route path="/weather" element={<Weather />} />
+          <Route path="/" element={
+            <>
+              <StarWarsData />
+              <CharacterSearch />
+            </>
+          } />
         </Routes>
       </div>
     </Router>

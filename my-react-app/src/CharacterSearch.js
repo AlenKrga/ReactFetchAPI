@@ -34,8 +34,8 @@ function StarWarsData() {
 
   return (
     <div className="p-4">
-      <h2 className="text-2xl font-bold mb-4">Star Wars Character Search</h2>
-      <form onSubmit={handleSearchSubmit} className="mb-4">
+      <h2 className="text-2xl font-bold mb-4 text-center">Star Wars Character Search</h2>
+      <form onSubmit={handleSearchSubmit} className="mb-4 text-center">
         <input
           type="text"
           value={searchTerm}
